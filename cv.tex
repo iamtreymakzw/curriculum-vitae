@@ -1,0 +1,127 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{classes/awesome-cv}
+\usepackage{fontspec}
+\newfontfamily\cfont{Noto Sans CJK SC}
+
+
+% Specify the location of the included fonts
+\fontdir[/fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-darknight}
+
+% Making the \entry command
+\newcommand{\entry}[4]{
+\ifthenelse{\isempty{#3}}
+{\slimentry{#1}{#2}}{
+
+\begin{minipage}[t]{.15\linewidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\linewidth}
+{\bf#2}\\\textit{#3} \footnotesize{#4}
+\end{minipage}\\
+\vspace{.2cm}
+}}
+
+\newcommand{\slimentry}[2]{
+
+\begin{minipage}[t]{.15\linewidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\linewidth}
+#2
+\end{minipage}\\
+\vspace{.25cm}
+}% end \entry command definition
+
+% Some macros because I'm lazy:
+\newcommand{\hit}{Harare Institute of Technology}
+\newcommand{\dju}{Daejeon University}
+\newcommand{\ssu}{Soongsil University}
+
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% User-defined icons
+\newcommand{\pdf}{\includegraphics[height=.85em]{icons/pdf.png}}
+\newcommand{\articleLink}{\includegraphics[height=.85em]{icons/document.png}}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{Trevor T.T}{Makausi}
+\position{Chairperson - Lecturer{\enskip\cdotp\enskip}Computer Science}
+\address{Flat No. 14, 56 Five Avenue, Harare, Zimbabwe}
+
+\mobile{(+263) 771 366 644}
+\email{makausithomas@gmail.com}
+\homepage{www.iamtreymakzw.me}
+\github{iamtreymakzw}
+\linkedin{iamtreymakzw}
+\twitter{@iamtreymakzw}
+% \extrainfo{extra informations}
+
+\quote{``Any man can change the stars, if they believe they can"}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Trevor T.T Makausi~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+
+\input{cv-sections/experience.tex}
+\input{cv-sections/research.tex}
+\input{cv-sections/presentation.tex}
+\input{cv-sections/articles}
+\input{cv-sections/honors.tex}
+\input{cv-sections/extracurricular.tex}
+\input{cv-sections/skills.tex}
+\input{cv-sections/education.tex}
+\input{cv-sections/references}
+
+
+
+%-------------------------------------------------------------------------------
+\end{document}
